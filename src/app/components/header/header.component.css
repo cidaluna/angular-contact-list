@@ -1,0 +1,36 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid #005792;
+  padding-bottom: 10px;
+}
+
+.header img{
+  width: 80%;
+  max-width: 416px;
+  max-height: 256px;
+}
+
+.header h1{
+  font-family: "Montserrat";
+  color: #005792;
+  text-align: center;
+}
+
+.header .title{
+  color:	#005792;
+  text-align: center;
+  font-family: "Style Script", cursive;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin: 0;
+}
+
+.header .title span {
+  color: #FD9843;
+}
