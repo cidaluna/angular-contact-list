@@ -1,0 +1,12 @@
+.container{
+  box-shadow: 0px 8px 16px 0px #3D8BFD26;
+  border-radius: 16px;
+  border: 1px solid #0D6EFD;
+  background: #F8F9FA;
+  width: 684px;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 56px 134px;
+  margin-top: 80px;
+  box-sizing: border-box;
+}
