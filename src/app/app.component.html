@@ -1,4 +1,11 @@
 <app-container>
-  <h1>Contact List</h1>
+  <app-header></app-header>
+    @for(letter of alphabet; track letter){
+      <app-spacer>
+        {{ letter }}
+      </app-spacer>
+      <app-contact></app-contact>
+    }
 </app-container>
+
 <router-outlet></router-outlet>
