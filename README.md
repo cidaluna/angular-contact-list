@@ -39,7 +39,7 @@ Processo onde o Angular sincroniza os dados entre a classe dos componentes e as 
 
  Exemplo:
 
- ```bash
+ ```html
   <p>Olá, {{ nome }}!</p>
  ```
 
@@ -55,7 +55,7 @@ Vincula uma propriedade do elemento HTML `src` a uma propriedade da classe do co
 
 Exemplo:
 
-  ```bash
+  ```html
   <img [src]="urlDaImagem" alt="Logo">
   ```
 
@@ -65,10 +65,39 @@ Exemplo:
   }
 ```
 
+### 3. Event Binding `(evento)="metodo()"`
 
+ Permite ouvir eventos praticados pelo usuário no DOM (como cliques, entradas de teclado, movimentos do mouse, toques na tela, etc) e reagir a eles na classe do componente, ou seja, podemos definir ações (como navegação, envio de formulários, exibição de mensagens, etc) a serem executadas quando um evento específico ocorrer.
 
+ Exemplo:
 
+ ```html
+  <button (click)="clicouNoBotao()">Teste</button> 
+```
 
+```typescript
+  export class MeuComponente {
+    clicouNoBotao() {
+      alert('Você clicou no botão teste!');
+    }
+  }
+```
+
+### 4. Two-way Binding `[(ngModel)]="propriedade"`
+
+Combina Property Binding e Event Binding para criar uma via de mão dupla entre a classe e o template. Ou seja, mudanças no campo de entrada do HTML atualiza a propriedade na classe e vice-versa, representando uma sincronização em tempo real de entrada de dados.
+
+Exemplo:
+
+```html
+  <input [(ngModel)]="nomeUsuario">
+```
+
+```typescript
+  export class MeuComponente {
+    nomeUsuario: string;
+  }
+```
 
 
 ## Screenshots
