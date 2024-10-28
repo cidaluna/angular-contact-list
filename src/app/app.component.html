@@ -4,7 +4,9 @@
       <app-spacer>
         {{ letter }}
       </app-spacer>
-      <app-contact></app-contact>
+      @for (contact of filterContactByInitialLetter(letter); track contact.id) {
+      <app-contact [nameProps]="contact.nome" [telProps]="contact.telefone"></app-contact>
+      }
     }
 </app-container>
 

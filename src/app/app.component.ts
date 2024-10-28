@@ -5,6 +5,8 @@ import { ContainerComponent } from "./components/container/container.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { SpacerComponent } from './components/spacer/spacer.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { IContact } from './models/contact.interface';
+import agenda from './agenda.json';
 
 @Component({
   selector: 'app-root',
@@ -17,5 +19,11 @@ import { ContactComponent } from './components/contact/contact.component';
 })
 export class AppComponent {
   alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  contacts: IContact[] = agenda;
 
+  filterContactByInitialLetter(letter: string): IContact[]{
+    return this.contacts.filter(contact => {
+      return contact.nome.toLowerCase().startsWith(letter);
+    });
+  }
 }
