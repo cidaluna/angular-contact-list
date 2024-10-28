@@ -13,16 +13,50 @@
     <input type="text" id="nome" placeholder="Digite o nome aqui"
     formControlName="nome"
     />
+    @if(contactForm.get('nome')?.touched){
+      @if(contactForm.get('nome')?.hasError('required')){
+        <div class="mensagem-erro">
+          Nome obrigatório
+        </div>
+      }@else if (contactForm.get('nome')?.hasError('pattern')){
+        <div class="mensagem-erro">
+          Insira o nome no formato correto
+        </div>
+      }
+    }
 
-    <label for="telefone">Telefone</label>
-    <input type="text" id="telefone" placeholder="Digite o telefone aqui"
-    formControlName="telefone"
+
+    <label for="celular">Celular</label>
+    <input type="text" id="celular" placeholder="Digite o número do celular aqui"
+    formControlName="celular"
     />
+    @if(contactForm.get('celular')?.touched){
+      @if(contactForm.get('celular')?.hasError('required')){
+        <div class="mensagem-erro">
+          Número de celular obrigatório
+        </div>
+      }@else if (contactForm.get('celular')?.hasError('celularInvalido')){
+        <div class="mensagem-erro">
+          Insira o número de celular no formato correto (XX) 9XXXX-XXXX
+        </div>
+      }
+    }
 
     <label for="email">E-mail</label>
     <input type="email" id="email" placeholder="Digite o email aqui"
     formControlName="email"
     />
+    @if(contactForm.get('email')?.touched){
+      @if(contactForm.get('email')?.hasError('required')){
+        <div class="mensagem-erro">
+          E-mail obrigatório
+        </div>
+      }@else if (contactForm.get('email')?.hasError('email')){
+        <div class="mensagem-erro">
+          Insira o e-mail no formato correto
+        </div>
+      }
+    }
 
     <app-spacer></app-spacer>
 
@@ -30,6 +64,17 @@
     <input type="date" id="aniversario" placeholder="Data de Nascimento"
     formControlName="aniversario"
     />
+    @if(contactForm.get('aniversario')?.touched){
+      @if(contactForm.get('aniversario')?.hasError('required')){
+        <div class="mensagem-erro">
+          Data de aniversario obrigatória
+        </div>
+      }@else if (contactForm.get('aniversario')?.hasError('idadeInvalida')){
+        <div class="mensagem-erro">
+          A idade deve estar entre 15 e 100 anos.
+        </div>
+      }
+    }
 
     <label for="redes">Redes sociais</label>
     <div class="input-container">
@@ -48,7 +93,10 @@
 
       <section class="botoes">
         <button (mouseover)="cancel()" class="botao-cancelar" type="button">Cancelar</button>
-        <button class="botao-salvar" type="submit">Salvar contato</button>
+        <button
+        [disabled]="contactForm.invalid"
+        [ngClass]="contactForm.valid ? 'botao-salvar': 'botao-desabilitado'"
+        type="submit">Salvar contato</button>
       </section>
 
   </form>

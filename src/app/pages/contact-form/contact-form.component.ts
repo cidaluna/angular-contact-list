@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
 import { ContainerComponent } from '../../components/container/container.component';
 import { SpacerComponent } from "../../components/spacer/spacer.component";
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { idadeValidator } from '../../validators/idade.validator';
+import { celularValidator } from '../../validators/celular.validator';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [ContainerComponent, SpacerComponent, ReactiveFormsModule ],
+  imports: [CommonModule,
+    ContainerComponent,
+    SpacerComponent,
+    ReactiveFormsModule,
+  ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css'
 })
@@ -15,16 +22,19 @@ export class ContactFormComponent {
 
   constructor(){
     this.contactForm = new FormGroup({
-      nome: new FormControl('Cida'),
-      telefone: new FormControl('99 99191-9919'),
-      email: new FormControl(''),
-      aniversario: new FormControl(''),
+      nome: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Zà-úÀ-Ú\\s\\-']+$"),]),
+      celular: new FormControl(null, [Validators.required, celularValidator()]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      aniversario: new FormControl('', [Validators.required, idadeValidator(15,100)]),
       redes: new FormControl(''),
-      observacoes: new FormControl('Olá Mundo'),
+      observacoes: new FormControl(''),
     });
   }
 
   saveContact(){
+    if(this.contactForm.invalid){
+      return;
+    }
     console.log('Salvar contato ', this.contactForm.value)
   }
 
