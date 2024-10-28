@@ -24,4 +24,11 @@ export class ContactFormComponent {
     });
   }
 
+  saveContact(){
+    console.log('Salvar contato ', this.contactForm.value)
+  }
+
+  cancel(){
+    console.log('Submissão cancelada!')
+  }
 }
