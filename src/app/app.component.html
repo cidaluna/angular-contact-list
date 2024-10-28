@@ -1,5 +1,10 @@
 <app-container>
   <app-header></app-header>
+
+    <input type="search" placeholder="Digite para buscar"
+    [(ngModel)]="filterTextSearch"
+    />
+
     @for(letter of alphabet; track letter){
       <app-spacer>
         {{ letter }}
