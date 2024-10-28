@@ -90,12 +90,13 @@ Combina Property Binding e Event Binding para criar uma via de mão dupla entre 
 Exemplo:
 
 ```html
-  <input [(ngModel)]="nomeUsuario">
+  <input [(ngModel)]="nomeUsuario" placeholder="Digite seu nome"/>
+  <p>Bem vindo(a), {{ nome }}</p>
 ```
 
 ```typescript
   export class MeuComponente {
-    nomeUsuario: string;
+    nomeUsuario: string = '';
   }
 ```
 
