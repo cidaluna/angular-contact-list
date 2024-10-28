@@ -8,13 +8,13 @@ import { ContactComponent } from './components/contact/contact.component';
 import { IContact } from './models/contact.interface';
 import agenda from './agenda.json';
 import { FormsModule } from '@angular/forms';
+import { ContactFormComponent } from "./pages/contact-form/contact-form.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, ContainerComponent,
-    HeaderComponent, SpacerComponent, ContactComponent, FormsModule
-  ],
+    HeaderComponent, SpacerComponent, ContactComponent, FormsModule, ContactFormComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
