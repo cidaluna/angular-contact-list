@@ -29,6 +29,47 @@ Contact List é uma aplicação Angular de gerenciamento de contatos, que permit
 
   Em seguida, a aplicação estará disponível em: http://localhost:4200
 
+## Data Binding
+
+Processo onde o Angular sincroniza os dados entre a classe dos componentes e as views (template).
+
+### 1. Interpolação `{{ valor }}`
+
+ Substitui o {{ nome }} pelo valor da variável ou da propriedade diretamente no template HTML.
+
+ Exemplo:
+
+ ```bash
+  <p>Olá, {{ nome }}!</p>
+ ```
+
+ ```typescript
+  export class MeuComponente {
+    nome = 'Cida Luna';
+  }
+```
+
+### 2. Property Binding `[propriedade]="valor"`
+
+Vincula uma propriedade do elemento HTML `src` a uma propriedade da classe do componente `urlDaImagem`. Permitindo valores dinamicamente no template.
+
+Exemplo:
+
+  ```bash
+  <img [src]="urlDaImagem" alt="Logo">
+  ```
+
+```typescript
+  export class MeuComponente {
+    urlDaImagem = 'http://meusite.com/imagem01.png';
+  }
+```
+
+
+
+
+
+
 
 ## Screenshots
 
