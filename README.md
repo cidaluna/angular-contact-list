@@ -1,27 +1,37 @@
-# AngularContactList
+# Projeto Lista de Contatos Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+Contact List é uma aplicação Angular de gerenciamento de contatos, que permite o usuário ...
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Como rodar a aplicação Angular
 
-## Code scaffolding
+1. **Clone o repositório:**
+  ```bash
+    git clone https://github.com/cidaluna/angular-contact-list.git
+  ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Navegue no diretório principal**
+  ```bash
+    cd angular-contact-list
+  ```
 
-## Build
+3. **Execute o comando**
+  ```bash 
+    npm install
+  ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. **Execute a aplicação Angular**
+  ```bash 
+    ng serve
+  ```
 
-## Running unit tests
+5. **Navegue na URL que o comando anterior apresentou**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  Em seguida, a aplicação estará disponível em: http://localhost:4200
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Screenshots
 
-## Further help
+Tela da aplicação Lista de Contatos em Angular:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![contact list](./src/assets/contact-list-angular-cida-luna-frontend-developer.PNG)
