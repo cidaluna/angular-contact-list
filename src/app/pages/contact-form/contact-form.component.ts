@@ -5,6 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { idadeValidator } from '../../validators/idade.validator';
 import { celularValidator } from '../../validators/celular.validator';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact-form',
@@ -13,6 +14,7 @@ import { celularValidator } from '../../validators/celular.validator';
     ContainerComponent,
     SpacerComponent,
     ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css'

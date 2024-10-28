@@ -7,13 +7,20 @@ import { SpacerComponent } from '../../components/spacer/spacer.component';
 import { IContact } from '../../models/contact.interface';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import agenda from '../../agenda.json';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-contact-list',
   standalone: true,
   imports: [ContainerComponent,
-    HeaderComponent, SpacerComponent, ContactComponent, FormsModule, ContactFormComponent],
+    HeaderComponent,
+    SpacerComponent,
+    ContactComponent,
+    FormsModule,
+    ContactFormComponent,
+    RouterLink
+  ],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
 })

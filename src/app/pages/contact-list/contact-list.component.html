@@ -5,6 +5,13 @@
     [(ngModel)]="filterTextSearch"
     />
 
+    <section class="adicionar-contato">
+      <button routerLink="/adicionar">
+        <img src="../../../assets/plus.png" alt="Ir para formulário adicionar">
+        <span>Adicionar contato</span>
+      </button>
+    </section>
+
     @for(letter of alphabet; track letter){
       <app-spacer>
         {{ letter }}
