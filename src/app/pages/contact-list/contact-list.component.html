@@ -1,0 +1,17 @@
+<app-container>
+  <app-header></app-header>
+
+    <input type="search" placeholder="Digite para buscar"
+    [(ngModel)]="filterTextSearch"
+    />
+
+    @for(letter of alphabet; track letter){
+      <app-spacer>
+        {{ letter }}
+      </app-spacer>
+      @for (contact of filterContactByInitialLetter(letter); track contact.id) {
+      <app-contact [nameProps]="contact.nome" [telProps]="contact.telefone"></app-contact>
+      }
+    }
+</app-container>
+
