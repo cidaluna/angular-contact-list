@@ -115,10 +115,15 @@ Tela da aplicação Lista de Contatos em Angular:
 
 ![contact list](./src/assets/contact-list-angular-cida-luna-frontend-developer.PNG)
 
-Tela Adicionar Contato:
+Tela adicionar contato:
 
 ![add contact](./src/assets/add-contact-angular-cida-luna-frontend-developer.PNG)
 
-Nova tela Adicionar Contato com foto:
+Nova tela adicionar contato com foto:
 
 ![add contact with photo](./src/assets/add-photo-contact-angular-cida-luna-frontend-developer.PNG)
+
+
+Tela editar contato com foto:
+
+![edit contact with photo](./src/assets/add-edit-contact-angular-cida-luna-frontend-developer.PNG)
