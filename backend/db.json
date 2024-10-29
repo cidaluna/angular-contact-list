@@ -1,0 +1,40 @@
+{
+  "contatos": [
+    {
+      "nome": "Cida",
+      "celular": "(99) 95151-9999",
+      "email": "cida@email.com",
+      "aniversario": "04-18-1987",
+      "redes": "",
+      "observacoes": "",
+      "id": "1"
+    },
+    {
+      "nome": "João",
+      "celular": "(88) 98888-8888",
+      "email": "joao@email.com",
+      "aniversario": "12-01-1955",
+      "redes": "",
+      "observacoes": "",
+      "id": "2"
+    },
+    {
+      "id": "55a9",
+      "nome": "Aparecida",
+      "celular": "(16) 95151-5151",
+      "email": "cicida@email.com",
+      "aniversario": "1987-04-18",
+      "redes": "",
+      "observacoes": ""
+    },
+    {
+      "id": "107a",
+      "nome": "Teste",
+      "celular": "(00) 95151-6060",
+      "email": "teste@cida.com",
+      "aniversario": "1987-04-18",
+      "redes": "",
+      "observacoes": ""
+    }
+  ]
+}
