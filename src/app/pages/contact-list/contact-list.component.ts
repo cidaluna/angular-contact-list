@@ -30,15 +30,14 @@ export class ContactListComponent implements OnInit {
   //contacts: IContact[] = agenda;
   contacts: IContact[] = [];
 
-  nomeUsuario: string = 'Cida Luna';
-  nomeDigitado: string = '';
-
   filterTextSearch: string = '';
 
   constructor(private _contactService: ContactService){}
 
   ngOnInit(){
-    this.contacts = this._contactService.getAll();
+    this._contactService.getAll().subscribe(listContacts => {
+      this.contacts = listContacts;
+    });
   }
 
   removeAccentuation(text: string): string{

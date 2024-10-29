@@ -47,10 +47,11 @@ export class ContactFormComponent implements OnInit{
       return;
     }
     const newContact = this.contactForm.value;
-    this._contactService.add(newContact);
-    this.contactForm.reset();
-    this._router.navigateByUrl('/listar');
-    console.log('Salvar contato ', this.contactForm.value)
+    console.log('Salvar contato ', newContact);
+    this._contactService.add(newContact).subscribe(() => {
+      this.contactForm.reset();
+      this._router.navigateByUrl('/listar');
+    });
   }
 
   cancel(){
