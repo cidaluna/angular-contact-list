@@ -21,7 +21,8 @@ import { ContactDetailsComponent } from "../contact-details/contact-details.comp
     ContactComponent,
     FormsModule,
     ContactFormComponent,
-    RouterLink, ContactDetailsComponent],
+    RouterLink
+  ],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
 })

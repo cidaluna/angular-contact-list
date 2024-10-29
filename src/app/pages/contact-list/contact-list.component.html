@@ -17,9 +17,11 @@
         {{ letter }}
       </app-spacer>
       @for (contact of filterContactByInitialLetter(letter); track contact.id) {
-      <app-contact [nameProps]="contact.nome" [telProps]="contact.celular"></app-contact>
+      <app-contact
+        [nameProps]="contact.nome"
+        [telProps]="contact.celular"
+        [idProps]="contact.id"
+        ></app-contact>
       }
     }
 </app-container>
-
-<app-contact-details></app-contact-details>
