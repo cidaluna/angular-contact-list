@@ -19,4 +19,9 @@ export class ContactService {
   add(contact: IContact): Observable<IContact>{
     return this._http.post<IContact>(this.API, contact);
   }
+
+  getById(id: number): Observable<IContact>{
+    const url = `${this.API}/${id}`;
+    return this._http.get<IContact>(url);
+  }
 }
