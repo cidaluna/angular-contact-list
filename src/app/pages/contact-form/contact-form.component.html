@@ -15,6 +15,15 @@
   </header>
 
   <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
+    <div role="button" class="imagem-contato">
+      <i class="material-icons">add</i>
+      <label for="avatar">Adicione a imagem do contato</label>
+      <input type="file"
+             accept="image/*"
+             id="avatar"
+             required
+             (change)="selectFile($event)">
+    </div>
     <label for="nome">Nome</label>
     <input type="text" id="nome" placeholder="Digite o nome aqui"
     formControlName="nome"
