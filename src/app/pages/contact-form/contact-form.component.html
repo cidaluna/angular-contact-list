@@ -24,6 +24,20 @@
              required
              (change)="selectFile($event)">
     </div>
+    @if(contactForm.get('nome')?.touched){
+      @if(contactForm.get('avatar')?.hasError('required')){
+        <div class="mensagem-erro">
+          Imagem obrigatória
+        </div>
+      }
+    }
+
+    @if(contactForm.get('avatar')?.value !== ''){
+      <figure>
+        <img [src]="contactForm.get('avatar')?.value" alt="Avatar do contato">
+      </figure>
+    }
+
     <label for="nome">Nome</label>
     <input type="text" id="nome" placeholder="Digite o nome aqui"
     formControlName="nome"

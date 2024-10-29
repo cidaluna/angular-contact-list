@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { IContact } from '../../models/contact.interface';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
+import { SpacerComponent } from "../../components/spacer/spacer.component";
 
 @Component({
   selector: 'app-contact-details',
   standalone: true,
-  imports: [CommonModule, ContainerComponent, ContactListComponent, RouterLink],
+  imports: [CommonModule, ContainerComponent, ContactListComponent, RouterLink, SpacerComponent],
   templateUrl: './contact-details.component.html',
   styleUrl: './contact-details.component.css'
 })

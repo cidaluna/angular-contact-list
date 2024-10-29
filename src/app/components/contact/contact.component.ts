@@ -12,5 +12,5 @@ export class ContactComponent {
   @Input() nameProps: string = '';
   @Input() telProps: string = '';
   @Input() idProps?: number;
-
+  @Input() avatarProps: string | ArrayBuffer = '';
 }
