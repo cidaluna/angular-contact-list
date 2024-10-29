@@ -1,0 +1,47 @@
+<app-container>
+  <header>
+    <section class="cabecalho-link">
+      <h1>Detalhes Contato</h1>
+    </section>
+    <section class="voltar">
+      <button routerLink="/listar">
+        <img src="../../../assets/arrow-left.png" alt="Voltar">
+        <span>Voltar</span>
+      </button>
+    </section>
+    <section class="cabecalho-contato">
+      <img src="../../../assets/perfil-contato.png" alt="Detalhes contato">
+    </section>
+  </header>
+
+  <section class="perfil">
+    <ul>
+      <li>
+        <strong>Celular</strong>
+      </li>
+      <li>{{ contact.celular }}</li>
+      <li>
+        <strong>Email</strong>
+      </li>
+      <li>{{ contact.email }}</li>
+      <li>
+        <strong>Data de nascimento</strong>
+      </li>
+      <li>{{ contact.aniversario }}</li>
+      <li>
+        <strong>Redes sociais</strong>
+      </li>
+      <li>{{ contact.redes }}</li>
+    </ul>
+    <div class="botoes">
+      <button class="botao-excluir">
+        Excluir contato
+      </button>
+      <button class="botao-editar">
+        Editar
+      </button>
+    </div>
+  </section>
+
+</app-container>
+

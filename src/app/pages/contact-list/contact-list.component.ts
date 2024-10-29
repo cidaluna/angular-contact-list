@@ -9,6 +9,7 @@ import { ContactFormComponent } from '../contact-form/contact-form.component';
 import agenda from '../../agenda.json';
 import { RouterLink } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
+import { ContactDetailsComponent } from "../contact-details/contact-details.component";
 
 
 @Component({
@@ -20,8 +21,7 @@ import { ContactService } from '../../services/contact.service';
     ContactComponent,
     FormsModule,
     ContactFormComponent,
-    RouterLink
-  ],
+    RouterLink, ContactDetailsComponent],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
 })
