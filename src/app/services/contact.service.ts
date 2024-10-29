@@ -24,4 +24,10 @@ export class ContactService {
     const url = `${this.API}/${id}`;
     return this._http.get<IContact>(url);
   }
+
+  deleteById(id: number): Observable<IContact>{
+    const url = `${this.API}/${id}`;
+    return this._http.delete<IContact>(url);
+  }
+
 }
