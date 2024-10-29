@@ -3,11 +3,12 @@ import { ContainerComponent } from '../../components/container/container.compone
 import { ContactListComponent } from "../contact-list/contact-list.component";
 import { CommonModule } from '@angular/common';
 import { IContact } from '../../models/contact.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact-details',
   standalone: true,
-  imports: [CommonModule, ContainerComponent, ContactListComponent],
+  imports: [CommonModule, ContainerComponent, ContactListComponent, RouterLink],
   templateUrl: './contact-details.component.html',
   styleUrl: './contact-details.component.css'
 })
