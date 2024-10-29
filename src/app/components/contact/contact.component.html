@@ -3,7 +3,7 @@
     <li><strong>{{ nameProps }}</strong></li>
     <li>{{ telProps }}</li>
     <li>
-      <button>
+      <button [routerLink]="['/form', idProps]">
         <img src="../../../assets/pencil-square.png" alt="Editar">
       </button>
       <button [routerLink]="['/details', idProps]">

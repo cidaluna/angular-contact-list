@@ -11,7 +11,10 @@ export const routes: Routes = [
     path: 'listar', component: ContactListComponent
   },
   {
-    path: 'adicionar', component: ContactFormComponent
+    path: 'form', component: ContactFormComponent
+  },
+  {
+    path: 'form/:id', component: ContactFormComponent
   },
   {
     path: 'details/:id', component: ContactDetailsComponent

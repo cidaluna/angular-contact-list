@@ -30,4 +30,18 @@ export class ContactService {
     return this._http.delete<IContact>(url);
   }
 
+  edit(contact: IContact): Observable<IContact>{
+    const url = `${this.API}/${contact.id}`;
+    return this._http.put<IContact>(url, contact);
+  }
+
+  // para aproveitar o mesmo formulário, se existir id chama edit, caso contrário chama add
+  addOrEdit(contact: IContact): Observable<IContact>{
+    if(contact.id){
+      return this.edit(contact);
+    }else{
+      return this.add(contact);
+    }
+  }
+
 }

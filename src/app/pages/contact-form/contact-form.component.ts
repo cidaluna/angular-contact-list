@@ -5,7 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { idadeValidator } from '../../validators/idade.validator';
 import { celularValidator } from '../../validators/celular.validator';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
@@ -24,16 +24,19 @@ export class ContactFormComponent implements OnInit{
   contactForm!: FormGroup;
 
   constructor(private _contactService: ContactService,
-    private _router: Router
+              private _router: Router,
+              private _activatedRoute: ActivatedRoute
   ){}
 
   ngOnInit(){
     this.startForm();
+    this.loadDataContact();
   }
 
   startForm(){
     this.contactForm = new FormGroup({
       nome: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Zà-úÀ-Ú\\s\\-']+$"),]),
+      avatar: new FormControl('', Validators.required),
       celular: new FormControl(null, [Validators.required, celularValidator()]),
       email: new FormControl('', [Validators.required, Validators.email]),
       aniversario: new FormControl('', [Validators.required, idadeValidator(15,100)]),
@@ -42,20 +45,51 @@ export class ContactFormComponent implements OnInit{
     });
   }
 
+  // se existir id e dados, carregá-los no formulário
+  loadDataContact(){
+    const id = this._activatedRoute.snapshot.paramMap.get('id'); // capturando o parâmetro id na rota
+    if(id){
+      this._contactService.getById(parseInt(id)).subscribe((data) => {
+        this.contactForm.patchValue(data)
+      });
+    }
+  }
+
   saveContact(){
     if(this.contactForm.invalid){
       return;
     }
     const newContact = this.contactForm.value;
-    console.log('Salvar contato ', newContact);
-    this._contactService.add(newContact).subscribe(() => {
+    const id = this._activatedRoute.snapshot.paramMap.get('id'); // capturando o parâmetro id na rota
+    newContact.id = id ? parseInt(id) : null;
+
+    this._contactService.addOrEdit(newContact).subscribe(() => {
       this.contactForm.reset();
       this._router.navigateByUrl('/listar');
     });
   }
 
+  selectFile(event: any){
+    const file: File = event.target.files[0];
+    if(file){
+      this.readFile(file)
+    }
+  }
+
+  readFile(file: File){
+    const reader = new FileReader();
+    reader.onload = () => {
+      if(reader.result){
+        this.contactForm.get('avatar')?.setValue(reader.result);
+      }
+    }
+    // converte img para formato base64
+    reader.readAsDataURL(file);
+  }
+
   cancel(){
     this.contactForm.reset();
-    console.log('Submissão cancelada!')
+    this._router.navigateByUrl('/listar');
+    console.log('Submissão cancelada!');
   }
 }
