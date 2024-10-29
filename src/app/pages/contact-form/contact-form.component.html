@@ -73,7 +73,7 @@
     @if(contactForm.get('aniversario')?.touched){
       @if(contactForm.get('aniversario')?.hasError('required')){
         <div class="mensagem-erro">
-          Data de aniversario obrigatória
+          Data de aniversário obrigatória
         </div>
       }@else if (contactForm.get('aniversario')?.hasError('idadeInvalida')){
         <div class="mensagem-erro">
@@ -98,7 +98,7 @@
       ></textarea>
 
       <section class="botoes">
-        <button (mouseover)="cancel()" class="botao-cancelar" type="button">Cancelar</button>
+        <button (click)="cancel()" class="botao-cancelar" type="button">Cancelar</button>
         <button
         [disabled]="contactForm.invalid"
         [ngClass]="contactForm.valid ? 'botao-salvar': 'botao-desabilitado'"

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { ContainerComponent } from '../../components/container/container.component';
@@ -8,6 +8,7 @@ import { IContact } from '../../models/contact.interface';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import agenda from '../../agenda.json';
 import { RouterLink } from '@angular/router';
+import { ContactService } from '../../services/contact.service';
 
 
 @Component({
@@ -24,11 +25,21 @@ import { RouterLink } from '@angular/router';
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
 })
-export class ContactListComponent {
+export class ContactListComponent implements OnInit {
   alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  contacts: IContact[] = agenda;
+  //contacts: IContact[] = agenda;
+  contacts: IContact[] = [];
+
+  nomeUsuario: string = 'Cida Luna';
+  nomeDigitado: string = '';
 
   filterTextSearch: string = '';
+
+  constructor(private _contactService: ContactService){}
+
+  ngOnInit(){
+    this.contacts = this._contactService.getAll();
+  }
 
   removeAccentuation(text: string): string{
     return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');

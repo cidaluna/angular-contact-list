@@ -1,5 +1,9 @@
 export interface IContact{
-  id: number,
+  id?: number,
   nome: string,
-  telefone: string
+  telefone: string,
+  email: string,
+  aniversario?: string,
+  redes?: string,
+  observacoes?: string
 }
