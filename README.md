@@ -91,12 +91,20 @@ Exemplo:
 
 ```html
   <input [(ngModel)]="nomeUsuario" placeholder="Digite seu nome"/>
-  <p>Bem vindo(a), {{ nome }}</p>
+  <p>Direção do .ts para o HTML</p>
+  <p>Input inicializado com o valor definido no .ts</p>
+```
+
+```html
+  <input [(ngModel)]="nomeDigitado" placeholder="Digite seu nome"/>
+  <p>Direção do HTML para o .ts</p>
+  <p>Input aguardando o valor ser digitado na tela HTML. Nome digitado = {{ nomeDigitado }}</p>
 ```
 
 ```typescript
   export class MeuComponente {
-    nomeUsuario: string = '';
+    nomeUsuario: string = 'Cida Luna';
+    nomeDigitado: string = '';
   }
 ```
 
