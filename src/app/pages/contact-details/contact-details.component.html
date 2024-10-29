@@ -16,7 +16,7 @@
 
   <section class="perfil">
     <div class="imagem-perfil">
-      <img [src]="contact.avatar" alt="Avatar do contato">
+      <img [src]="contact.avatar" alt="Avatar do contato" class="imagem-container">
       <h2><strong>{{ contact.nome }}</strong></h2>
     </div>
     <app-spacer></app-spacer>
@@ -41,12 +41,19 @@
         <strong>Redes sociais</strong>
       </li>
       <li>{{ contact.redes }}</li>
+      <li>
+        <i class="material-icons">info</i>
+        <strong>Observações</strong>
+      </li>
+      <li>{{ contact.observacoes }}</li>
     </ul>
     <div class="botoes">
       <button (click)="deleteContact()" class="botao-excluir">
         Excluir contato
       </button>
-      <button class="botao-editar">
+      <button class="botao-editar"
+      [routerLink]="['/form', contact.id]"
+      >
         Editar
       </button>
     </div>

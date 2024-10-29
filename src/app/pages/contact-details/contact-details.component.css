@@ -129,3 +129,21 @@ h1 {
   cursor: pointer;
   background: none;
 }
+
+.imagem-container{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.imagem-perfil h2{
+  font-family: 'Montserrat';
+}
+
+.imagem-perfil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
