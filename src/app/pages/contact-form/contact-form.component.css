@@ -164,13 +164,6 @@ input:focus {
   cursor:not-allowed;
 }
 
-.mensagem-erro {
-  font-size: 16px;
-  color: red;
-  margin-bottom: 12px;
-  font-family: 'Montserrat';
-}
-
 .voltar button{
   font-family: 'Montserrat';
   color: #0D6EFD;

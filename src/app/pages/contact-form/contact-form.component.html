@@ -24,13 +24,10 @@
              required
              (change)="selectFile($event)">
     </div>
-    @if(contactForm.get('nome')?.touched){
-      @if(contactForm.get('avatar')?.hasError('required')){
-        <div class="mensagem-erro">
-          Imagem obrigatória
-        </div>
-      }
-    }
+    <app-msg-error
+    [controlProps]="checkFormControl('avatar')"
+    [errorsMapProps]="{ 'required': 'Imagem obrigatória' }"
+    ></app-msg-error>
 
     @if(contactForm.get('avatar')?.value !== ''){
       <figure>
@@ -42,50 +39,28 @@
     <input type="text" id="nome" placeholder="Digite o nome aqui"
     formControlName="nome"
     />
-    @if(contactForm.get('nome')?.touched){
-      @if(contactForm.get('nome')?.hasError('required')){
-        <div class="mensagem-erro">
-          Nome obrigatório
-        </div>
-      }@else if (contactForm.get('nome')?.hasError('pattern')){
-        <div class="mensagem-erro">
-          Insira o nome no formato correto
-        </div>
-      }
-    }
+    <app-msg-error
+    [controlProps]="checkFormControl('nome')"
+    [errorsMapProps]="{ 'required': 'Nome obrigatório', 'pattern': 'Insira o nome no formato correto' }"
+    ></app-msg-error>
 
-
-    <label for="celular">Celular</label>
+    <label for="celular">Celular formato (XX) 9XXXX-XXXX</label>
     <input type="text" id="celular" placeholder="Digite o número do celular aqui"
     formControlName="celular"
     />
-    @if(contactForm.get('celular')?.touched){
-      @if(contactForm.get('celular')?.hasError('required')){
-        <div class="mensagem-erro">
-          Número de celular obrigatório
-        </div>
-      }@else if (contactForm.get('celular')?.hasError('celularInvalido')){
-        <div class="mensagem-erro">
-          Insira o número de celular no formato correto (XX) 9XXXX-XXXX
-        </div>
-      }
-    }
+    <app-msg-error
+    [controlProps]="checkFormControl('celular')"
+    [errorsMapProps]="{ 'required': 'Número de celular obrigatório', 'celularInvalido': 'Insira o número de celular no formato correto '+cel }"
+    ></app-msg-error>
 
     <label for="email">E-mail</label>
     <input type="email" id="email" placeholder="Digite o email aqui"
     formControlName="email"
     />
-    @if(contactForm.get('email')?.touched){
-      @if(contactForm.get('email')?.hasError('required')){
-        <div class="mensagem-erro">
-          E-mail obrigatório
-        </div>
-      }@else if (contactForm.get('email')?.hasError('email')){
-        <div class="mensagem-erro">
-          Insira o e-mail no formato correto
-        </div>
-      }
-    }
+    <app-msg-error
+    [controlProps]="checkFormControl('email')"
+    [errorsMapProps]="{ 'required': 'E-mail obrigatório', 'email': 'Insira o e-mail no formato correto' }"
+    ></app-msg-error>
 
     <app-spacer></app-spacer>
 
@@ -93,17 +68,10 @@
     <input type="date" id="aniversario" placeholder="Data de Nascimento"
     formControlName="aniversario"
     />
-    @if(contactForm.get('aniversario')?.touched){
-      @if(contactForm.get('aniversario')?.hasError('required')){
-        <div class="mensagem-erro">
-          Data de aniversário obrigatória
-        </div>
-      }@else if (contactForm.get('aniversario')?.hasError('idadeInvalida')){
-        <div class="mensagem-erro">
-          A idade deve estar entre 15 e 100 anos.
-        </div>
-      }
-    }
+    <app-msg-error
+    [controlProps]="checkFormControl('aniversario')"
+    [errorsMapProps]="{ 'required': 'Data de aniversário obrigatória', 'idadeInvalida': 'A idade deve estar entre 15 e 100 anos.' }"
+    ></app-msg-error>
 
     <label for="redes">Redes sociais</label>
     <div class="input-container">

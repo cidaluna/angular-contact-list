@@ -1,0 +1,5 @@
+<div *ngIf="controlProps?.invalid && controlProps?.touched">
+  <ng-container *ngFor="let error of errorMessages">
+    <div class="mensagem-erro">{{ error }}</div>
+  </ng-container>
+</div>

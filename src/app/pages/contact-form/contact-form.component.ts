@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ContainerComponent } from '../../components/container/container.component';
 import { SpacerComponent } from "../../components/spacer/spacer.component";
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { idadeValidator } from '../../validators/idade.validator';
 import { celularValidator } from '../../validators/celular.validator';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
+import { MsgErrorComponent } from "../../components/msg-error/msg-error.component";
 
 @Component({
   selector: 'app-contact-form',
@@ -15,17 +16,18 @@ import { ContactService } from '../../services/contact.service';
     ContainerComponent,
     SpacerComponent,
     ReactiveFormsModule,
-    RouterLink
-  ],
+    RouterLink, MsgErrorComponent],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css'
 })
 export class ContactFormComponent implements OnInit{
   contactForm!: FormGroup;
+  cel: string = '(XX) 9XXXX-XXXX';
 
   constructor(private _contactService: ContactService,
               private _router: Router,
-              private _activatedRoute: ActivatedRoute
+              private _activatedRoute: ActivatedRoute,
+              private _fb: FormBuilder
   ){}
 
   ngOnInit(){
@@ -34,15 +36,24 @@ export class ContactFormComponent implements OnInit{
   }
 
   startForm(){
-    this.contactForm = new FormGroup({
-      nome: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Zà-úÀ-Ú\\s\\-']+$"),]),
-      avatar: new FormControl('', Validators.required),
-      celular: new FormControl(null, [Validators.required, celularValidator()]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      aniversario: new FormControl('', [Validators.required, idadeValidator(15,100)]),
-      redes: new FormControl(''),
-      observacoes: new FormControl(''),
+    this.contactForm = this._fb.group({
+      nome: ['', [Validators.required, Validators.pattern("^[a-zA-Zà-úÀ-Ú\\s\\-']+$"),]],
+      avatar: ['', Validators.required],
+      celular: [null, [Validators.required, celularValidator()]],
+      email: ['', [Validators.required, Validators.email]],
+      aniversario: ['', [Validators.required, idadeValidator(15,100)]],
+      redes: [''],
+      observacoes: [''],
     });
+  }
+
+  // lançar mensagens de erro para controle dos campos do form
+  checkFormControl(nomeCampo: string): FormControl{
+    const control = this.contactForm.get(nomeCampo);
+    if(!control){
+      throw new Error('Controle de formulário não encontrado: '+nomeCampo);
+    }
+    return control as FormControl;
   }
 
   // se existir id e dados, carregá-los no formulário
